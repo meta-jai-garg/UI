@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>Test</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+</head>
+
+<body>
+
+
+  <div id="lineChart" style="height: 350px; width: 600px; margin: 0 auto;"></div>
+
+
+  <div id="pieChart" style="height: 400px;"></div>
+
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+  <script>
+    var data = [{
+          y: '2009',
+          a: 0,
+          b: 0,
+          c: 0
+        },
+        {
+          y: '2010',
+          a: 150,
+          b: 30,
+          c: 50
+        },
+        {
+          y: '2011',
+          a: 20,
+          b: 50,
+          c: 150
+        },
+        {
+          y: '2012',
+          a: 150,
+          b: 80,
+          c: 40
+        },
+        {
+          y: '2013',
+          a: 20,
+          b: 110,
+          c: 150
+        },
+        {
+          y: '2014',
+          a: 50,
+          b: 150,
+          c: 40
+        },
+        {
+          y: '2015',
+          a: 150,
+          b: 170,
+          c: 130
+        }
+      ],
+      config = {
+        data: data,
+        xkey: 'y',
+        ykeys: ['a', 'b', 'c'],
+        labels: ['Series A', 'Series B', 'Series C'],
+        fillOpacity:0.6,
+        hideHover: 'auto',
+        behaveLikeLine: true,
+        resize: true,
+        pointFillColors: ['#0079FC', '#00BCD2', '#E382D6'],
+        pointStrokeColors: ['#0079FC', '#00BCD2', '#E382D6'],
+        lineColors: ['#0079FC', '#00BCD2', '#E382D6']
+      };
+    config.element = 'lineChart';
+    
+    Morris.Line(config);
+    Morris.Donut({
+      element: 'pieChart',
+      data: [{
+          label: "Canada",
+          value: 30
+        },
+        {
+          label: "London",
+          value: 20
+        },
+        {
+          label: "USA",
+          value: 12
+        }
+      ],
+      colors:['#5B6BE8', '#C1C5E2', '#40A4F1']
+    });
+
+  </script>
+</body>
+
+</html>
